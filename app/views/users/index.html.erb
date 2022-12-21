@@ -1,5 +1,6 @@
-<h3>All Users</h3>
+<h3>All Users: <%= @users.size %></h3>
 <% @users.each do |user| %>
     <hr>
     <%= render "users/user", user: user%>
 <% end %>
+
