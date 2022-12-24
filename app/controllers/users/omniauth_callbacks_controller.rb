@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-    def google_auth2
+    def google_oauth2
       handle_auth "Google"
     end
 

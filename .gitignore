@@ -36,4 +36,3 @@
 
 # Ignore application configuration
 /config/application.yml`
-/config/initializers/devise.rb
