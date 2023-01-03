@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
 
-  resources :users, only: [:index, :show, :destroy] do
+  resources :users, only: [:index, :show, :destroy, :edit, :update] do
     member do
       patch :ban
     end

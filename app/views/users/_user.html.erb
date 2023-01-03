@@ -42,7 +42,11 @@
     <%= image_tag user.image, width: "50x50" %>
     <br>
 <% end %>
+<b><%= 'roles'.humanize %>:</b>
+<%= user.active_roles.join(", ") %>
+<br>
 
+<%= link_to "Edit Roles", edit_user_path(user) %>
 <%= button_to "Delete", user, method: :delete, data: {confirm: "Are You Sure?"} %>
 <%= button_to ban_status(user), ban_user_path(user), method: :patch %>
 
