@@ -29,9 +29,19 @@
             <td><%= user.active_roles.join(", ") %></td>
             <td>
                 <% if current_user.admin? %>
-                    <%= link_to "Edit Roles", edit_user_path(user), class:"btn btn-sm btn-warning"%>
-                    <%= button_to "Delete", user, method: :delete, data: {confirm: "Are You Sure?"}, class:"btn btn-sm btn-danger" %>
-                    <%= button_to ban_status(user), ban_user_path(user), method: :patch, class:"btn btn-sm btn-danger" %>
+                <div class="row">
+                    <div class="col">
+                        <%= link_to "Edit Roles", edit_user_path(user), class:"btn btn-sm btn-warning"%>
+                    </div>
+
+                    <div class="col">
+                        <%= button_to "Delete", user, method: :delete, data: {confirm: "Are You Sure?"}, class:"btn btn-sm btn-danger" %>
+                    </div>
+
+                    <div class="col">
+                        <%= button_to ban_status(user), ban_user_path(user), method: :patch, class:"btn btn-sm btn-danger" %>
+                    </div>
+                </div>
                 <% end %>
             </td>
         
