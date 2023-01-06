@@ -5,6 +5,7 @@
         <tr>
             <th>Id</th>
             <th>Email</th>
+            <th>Confirmed</th>
             <th>Banned?</th>
             <th>Name</th>
             <th>Image</th>
@@ -15,9 +16,10 @@
     <tbody>
         <% @users.each do |user| %>
         <tr>
-            <td><%= user.id %></td>
+            <td><%= link_to user.id, user_path(user) %></td>
             <td><%= user.email %></td>
-            <td><%= user.access_locked? %></td>
+            <td><%= boolean_label(user.confirmed?) %></td>
+            <td><%= boolean_label(user.access_locked?) %></td>
             <td><%= user.name %></td>
             <td>
                 <% if user.image.present? %>
