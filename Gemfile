@@ -39,6 +39,8 @@ gem "omniauth-rails_csrf_protection"
 
 gem "figaro"
 
+gem 'devise_invitable'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
