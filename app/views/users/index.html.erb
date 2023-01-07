@@ -18,7 +18,10 @@
         <tr>
             <td><%= link_to user.id, user_path(user) %></td>
             <td><%= user.email %></td>
-            <td><%= boolean_label(user.confirmed?) %></td>
+            <td>
+                <%= boolean_label(user.confirmed?) %>
+                <%= button_to "Resend Invite",  resend_confirmation_instructions_user_path(user), method: :patch, class:"btn btn-sm btn-primary" %>
+            </td>
             <td><%= boolean_label(user.access_locked?) %></td>
             <td><%= user.name %></td>
             <td>

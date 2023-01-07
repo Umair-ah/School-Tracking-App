@@ -42,6 +42,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def resend_confirmation_instructions
+        @user = User.find(params[:id])
+        unless @user.confirmed?
+            @user.resend_confirmation_instructions
+            redirect_to @user, notice: "Confirmation was resent"
+        else
+            redirect_to @user, alert: "User Already Exists!"
+        end
+    end
+
     private
         def user_params
             params.require(:user).permit(*User::ROLES)
