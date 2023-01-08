@@ -31,12 +31,12 @@
             </td>
             <td><%= user.active_roles.join(", ") %></td>
             <td>
-                <% if current_user.admin? %>
+                
                 <div class="row">
                     <div class="col">
-                        <%= link_to "Edit Roles", edit_user_path(user), class:"btn btn-sm btn-warning"%>
+                        <%= link_to "Edit", edit_user_path(user), class:"btn btn-sm btn-warning"%>
                     </div>
-
+                <% if current_user.admin? %>
                     <div class="col">
                         <%= button_to "Delete", user, method: :delete, data: {confirm: "Are You Sure?"}, class:"btn btn-sm btn-danger" %>
                     </div>

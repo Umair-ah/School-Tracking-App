@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_admin, only: [:edit, :ban, :destroy, :update ]
+    before_action :require_admin, only: [:ban, :destroy]
 
     def index
         @users = User.all.order(created_at: :desc)
@@ -54,7 +54,9 @@ class UsersController < ApplicationController
 
     private
         def user_params
-            params.require(:user).permit(*User::ROLES)
+            list_allowed_params = [:name]
+            list_allowed_params += [*User::ROLES] if current_user.admin?
+            params.require(:user).permit(list_allowed_params)
         end
 
         def require_admin
