@@ -20,12 +20,19 @@ class UsersController < ApplicationController
 
     def ban
         @user = User.find(params[:id])
-        if @user.access_locked?
-            @user.unlock_access!
+
+        if current_user == @user
+            redirect_to users_path, alert: "You Can't Ban Yourself"
         else
-            @user.lock_access!
+            if @user.access_locked?
+                @user.unlock_access!
+            else
+                @user.lock_access!
+            end
+
+            redirect_to @user, notice: "User Ban Status: #{@user.access_locked?}"
         end
-        redirect_to @user, notice: "User Ban Status: #{@user.access_locked?}"
+        
         
     end
 
