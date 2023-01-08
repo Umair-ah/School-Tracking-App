@@ -29,6 +29,8 @@ gem "jbuilder"
 
 gem 'devise'
 
+gem 'invisible_captcha'
+
 gem 'bootstrap'
 
 gem 'omniauth-google-oauth2'

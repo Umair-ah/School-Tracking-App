@@ -129,6 +129,8 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    invisible_captcha (2.0.0)
+      rails (>= 5.0)
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
@@ -298,6 +300,7 @@ DEPENDENCIES
   devise_invitable
   figaro
   importmap-rails
+  invisible_captcha
   jbuilder
   omniauth-github!
   omniauth-google-oauth2
