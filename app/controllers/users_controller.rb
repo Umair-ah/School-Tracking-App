@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :require_admin, only: [:ban, :destroy]
+    before_action :require_admin_or_owner, only: [:edit, :update]
 
     def index
         @users = User.all.order(created_at: :desc)
@@ -54,7 +55,9 @@ class UsersController < ApplicationController
 
     private
         def user_params
-            list_allowed_params = [:name]
+            @user = User.find(params[:id])
+            list_allowed_params = []
+            list_allowed_params += [:name] if current_user.admin? || current_user == @user
             list_allowed_params += [*User::ROLES] if current_user.admin?
             params.require(:user).permit(list_allowed_params)
         end
@@ -64,4 +67,13 @@ class UsersController < ApplicationController
                 redirect_to root_path, alert: "You are not allowed to perform this action!"
             end
         end
+
+        def require_admin_or_owner
+            @user = User.find(params[:id])
+            unless current_user.admin? || current_user == @user
+                redirect_to users_path, alert: "You Are Not Authorized to perform this action!"
+            end
+            
+        end
+        
 end
