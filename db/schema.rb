@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_153449) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_11_062838) do
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_153449) do
     t.integer "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "star_time"
+    t.json "days", default: {}, null: false
     t.index ["classroom_id"], name: "index_courses_on_classroom_id"
     t.index ["service_id"], name: "index_courses_on_service_id"
     t.index ["user_id"], name: "index_courses_on_user_id"

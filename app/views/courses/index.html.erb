@@ -18,6 +18,10 @@
         <th>Classroom</th>
         
         <th>Service</th>
+
+        <th>Start Time</th>
+
+        <th>Days</th>
         
         <th>Actions</th>
       </tr>
@@ -32,6 +36,10 @@
             <td><%= course.classroom.name %></td>
           
             <td><%= course.service.name %></td>
+
+            <td><%= course.star_time&.strftime("%H:%M") %></td>
+
+            <td><%= course.active_days.join(", ") %></td>
           
           <td>
           <div style=" display: flex;">
