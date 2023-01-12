@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@lesson) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :classroom %>
+    <%= f.association :course %>
+    <%= f.input :status, collection: Lesson.status, as: :radio_buttons, include_blank: false, input_html: {style: "position: absolute;"} %> 
+    <%= f.input :start, minute_step: 15, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

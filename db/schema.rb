@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_062838) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_161123) do
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -30,6 +30,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_062838) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
+  create_table "lessons", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "classroom_id", null: false
+    t.integer "course_id", null: false
+    t.string "status", default: "planned"
+    t.datetime "start"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_lessons_on_classroom_id"
+    t.index ["course_id"], name: "index_lessons_on_course_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.integer "duration"
@@ -44,4 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_062838) do
   add_foreign_key "courses", "classrooms"
   add_foreign_key "courses", "services"
   add_foreign_key "courses", "users"
+  add_foreign_key "lessons", "classrooms"
+  add_foreign_key "lessons", "courses"
+  add_foreign_key "lessons", "users"
 end
