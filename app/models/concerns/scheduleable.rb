@@ -3,7 +3,7 @@ module Scheduleable
     extend ActiveSupport::Concern
     included do
       # List user days
-      DAYS_OF_WEEK = [:Monday, :Tuesday, :Wednesday, :Thursday, :friday, :Saturday, :Sunday]
+      DAYS_OF_WEEK = [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
     
       # json column to store days 
       store_accessor :days, *DAYS_OF_WEEK

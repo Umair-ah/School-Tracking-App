@@ -45,6 +45,8 @@ gem 'devise_invitable'
 
 gem 'simple_form'
 
+gem 'ice_cube'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

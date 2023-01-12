@@ -22,6 +22,10 @@
         <th>Start Time</th>
 
         <th>Days</th>
+
+        <th>Schedule</th>
+
+        <th>Occurences</th>
         
         <th>Actions</th>
       </tr>
@@ -40,6 +44,14 @@
             <td><%= course.star_time&.strftime("%H:%M") %></td>
 
             <td><%= course.active_days.join(", ") %></td>
+
+            <td><%= course.schedule %></td>
+
+            <td>
+              <%= course.schedule.occurrences(Time.now + 1.month).each do |occurence| %> 
+                <%= occurence&.strftime("%d/%b/%y") %><br/>
+              <% end %>
+            </td>
           
           <td>
           <div style=" display: flex;">
