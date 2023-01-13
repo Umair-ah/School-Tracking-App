@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :lessons
-  resources :courses
+  
+  resources :courses do
+    member do
+      patch :generate_lessons
+    end
+  end
+
   resources :services
   resources :classrooms
 

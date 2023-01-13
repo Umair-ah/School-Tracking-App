@@ -51,6 +51,7 @@
               <%= course.schedule.occurrences(Time.now + 1.month).each do |occurence| %> 
                 <%= occurence&.strftime("%d/%b/%y") %><br/>
               <% end %>
+              <%= button_to "Generate Lessons", generate_lessons_course_path(course), method: :patch %>
             </td>
           
           <td>

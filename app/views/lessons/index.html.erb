@@ -31,9 +31,9 @@
         <%= content_tag :tr, id: dom_id(lesson), class: dom_class(lesson) do %>
           <td><%= link_to lesson.id, lesson %></td>
           
-            <td><%= lesson.user %></td>
+            <td><%= lesson.user.name %></td>
           
-            <td><%= lesson.classroom %></td>
+            <td><%= lesson.classroom.name %></td>
           
             <td><%= lesson.course %></td>
           
