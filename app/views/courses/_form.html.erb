@@ -7,7 +7,7 @@
     <%= f.association :user %>
     <%= f.association :classroom %>
     <%= f.association :service %>
-    <%= f.input :star_time, minute_step: 15 %><br/>
+    <%= f.input :start_time, minute_step: 15 %><br/>
     <% if current_user.admin? %>
         <% Course::DAYS_OF_WEEK.each do |day| %>
           <label>
