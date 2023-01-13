@@ -7,7 +7,11 @@ class CoursesController < ApplicationController
   end
 
   def generate_lessons
-    @course.schedule.occurrences(Time.now + 1.month).each do |occurence|
+    # delete future lessons to regenrate them(deletes prevous lessons if you decided to change timings)
+    @course.lessons.where("start > ?", Time.now).destroy_all
+
+    # regenerate lessons
+    @course.schedule.next_occurrences(8).each do |occurence|
       @course.lessons.find_or_create_by(start: occurence.to_datetime, user: @course.user, classroom: @course.classroom)
     end
     redirect_to lessons_path, notice: "Lessons Generated Successfully!"
