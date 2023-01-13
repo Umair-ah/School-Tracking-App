@@ -41,7 +41,7 @@
           
             <td><%= course.service.name %></td>
 
-            <td><%= course.star_time&.strftime("%H:%M") %></td>
+            <td><%= course.start_time %></td>
 
             <td><%= course.active_days.join(", ") %></td>
 
@@ -49,7 +49,7 @@
 
             <td>
               <%= course.schedule.occurrences(Time.now + 1.month).each do |occurence| %> 
-                <%= occurence&.strftime("%d/%b/%y") %><br/>
+                <%= occurence %><br/>
               <% end %>
               <%= button_to "Generate Lessons", generate_lessons_course_path(course), method: :patch %>
             </td>

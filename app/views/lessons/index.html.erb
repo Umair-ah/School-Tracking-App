@@ -35,15 +35,17 @@
           
             <td><%= lesson.classroom.name %></td>
           
-            <td><%= lesson.course %></td>
+            <td><%= lesson.course_id %></td>
           
             <td><%= lesson.status %></td>
           
             <td><%= lesson.start %></td>
           
           <td>
-            <%= link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning' %>
-            <%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            <div style=" display: flex;">
+              <%= link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning' %>
+              <%= button_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </div>
           </td>
         <% end %>
       <% end %>

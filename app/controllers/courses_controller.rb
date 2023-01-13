@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
 
   def generate_lessons
     @course.schedule.occurrences(Time.now + 1.month).each do |occurence|
-      @course.lessons.find_or_create_by(start: occurence, user: @course.user, classroom: @course.classroom)
+      @course.lessons.find_or_create_by(start: occurence.to_datetime, user: @course.user, classroom: @course.classroom)
     end
     redirect_to lessons_path, notice: "Lessons Generated Successfully!"
 

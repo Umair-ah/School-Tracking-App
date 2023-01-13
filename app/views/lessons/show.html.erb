@@ -7,15 +7,15 @@
   <div class="card-body">
   
     <b>User:</b>
-    <%= @lesson.user %>
+    <%= @lesson.user.name %>
     <br>
   
     <b>Classroom:</b>
-    <%= @lesson.classroom %>
+    <%= @lesson.classroom.name %>
     <br>
   
     <b>Course:</b>
-    <%= @lesson.course %>
+    <%= @lesson.course_id %>
     <br>
   
     <b>Status:</b>
@@ -27,8 +27,8 @@
     <br>
   
   </div>
-  <div class="card-footer">
+  <div class="card-footer" style="display: flex;">
     <%= link_to 'Edit', edit_lesson_path(@lesson), class: 'btn btn-sm btn-warning' %>
-    <%= link_to 'Destroy', @lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    <%= button_to 'Destroy', @lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
   </div>
 </div>
