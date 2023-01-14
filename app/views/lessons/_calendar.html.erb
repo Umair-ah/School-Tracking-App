@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <h6>Calendar</h6>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <%= month_calendar(events: @lessons, attribute: :start) do |date, lessons| %>
+                <%= date %>
+
+                <% lessons.each do |lesson| %>
+                <div>
+                    Id:
+                    <%= link_to lesson.id, lesson_path(lesson) %><br/>
+                    Course:
+                    <%= link_to lesson.course_id, course_path(lesson.course) %><br/>
+                    Classroom:
+                    <%= link_to lesson.classroom.name, classroom_path(lesson.classroom) %><br/>
+                    User:
+                    <%= link_to lesson.user.name, user_path(lesson.user) %><br/>
+                    Start:
+                    <%= lesson.start.strftime("%H:%M") %>
+                </div>
+                <% end %>
+            <% end %>
+        </div>
+    
+    </div>
+
+</div>
