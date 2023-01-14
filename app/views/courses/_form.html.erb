@@ -17,6 +17,16 @@
           <br>
         <% end %>
     <% end %>
+
+    <h3>Tasks</h3>
+    <div id="enrollments">
+      <%= f.simple_fields_for :enrollments do |enrollment| %>
+        <%= render 'enrollment_fields', f: task %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add Enrollment', f, :enrollments %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

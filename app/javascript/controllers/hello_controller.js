@@ -5,3 +5,6 @@ export default class extends Controller {
     this.element.textContent = "Hello World!"
   }
 }
+
+require("jquery")
+require("@nathanvda/cocoon")
