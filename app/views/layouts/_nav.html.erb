@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <i class="fas fa-flag"></i>
@@ -26,7 +26,7 @@
                 <div class="fa fa-cog"></div>
                 <b>Account settings</b>
               <% end %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+              <%= button_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <div class="fa fa-sign-out-alt"></div>
                 <b>Sign out</b>
               <% end %>
