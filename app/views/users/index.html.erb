@@ -1,5 +1,7 @@
-All users: <%= @users.size %>
-<% @users.each do |user| %>
-  <hr/>
-  <%= render 'users/user', user: user %>
-<% end %>
+<div class="my-3">
+  All users: <%= @users.size %>
+  <% @users.each do |user| %>
+    <hr/>
+    <%= render 'users/user', user: user %>
+  <% end %>
+</div>
