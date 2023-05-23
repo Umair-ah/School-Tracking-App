@@ -1,4 +1,4 @@
-All users
+All users: <%= @users.size %>
 <% @users.each do |user| %>
   <hr/>
   <%= render 'users/user', user: user %>

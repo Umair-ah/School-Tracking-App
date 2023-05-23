@@ -20,4 +20,9 @@
 <%= user.current_sign_in_ip %>
 <br>
 <b><%= 'last_sign_in_ip'.humanize %>:</b>
-<%= user.last_sign_in_ip %>
+<%= user.last_sign_in_ip %><br/>
+
+<b><%= 'locked_at'.humanize %>:</b>
+<%= user.locked_at %><br/>
+
+<%= button_to "Delete", user, method: :delete, class:"btn btn-danger btn-sm mt-1" %>
