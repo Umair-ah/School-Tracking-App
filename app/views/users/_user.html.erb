@@ -25,4 +25,6 @@
 <b><%= 'locked_at'.humanize %>:</b>
 <%= user.locked_at %><br/>
 
+<%= button_to ban_status(user), ban_user_path(user), method: :patch, class:"btn btn-warning btn-sm" %>
+
 <%= button_to "Delete", user, method: :delete, class:"btn btn-danger btn-sm mt-1" %>
