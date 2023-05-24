@@ -36,6 +36,7 @@ gem "redis", "~> 4.0"
 gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'simple_form'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
