@@ -28,4 +28,9 @@ class User < ApplicationRecord
     # assign default role
     self.update(student: true)
   end
+
+  def to_s
+    email
+  end
+
 end

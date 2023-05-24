@@ -1,0 +1,26 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Course
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>User:</b>
+    <%= @course.user.email %>
+    <br>
+  
+    <b>Classroom:</b>
+    <%= @course.classroom.name %>
+    <br>
+  
+    <b>Service:</b>
+    <%= @course.service.name %>
+    <br>
+  
+  </div>
+  <div class="card-footer d-flex gap-2">
+    <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-warning' %>
+    <%= button_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>
