@@ -11,8 +11,8 @@
     <br>
   
   </div>
-  <div class="card-footer">
+  <div class="card-footer d-flex gap-2">
     <%= link_to 'Edit', edit_classroom_path(@classroom), class: 'btn btn-sm btn-warning' %>
-    <%= link_to 'Destroy', @classroom, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    <%= button_to 'Destroy', @classroom, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
   </div>
 </div>
