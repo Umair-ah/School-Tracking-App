@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @classroom %>
-
-<div>
-  <%= link_to "Edit this classroom", edit_classroom_path(@classroom) %> |
-  <%= link_to "Back to classrooms", classrooms_path %>
-
-  <%= button_to "Destroy this classroom", @classroom, method: :delete %>
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Classroom
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>Name:</b>
+    <%= @classroom.name %>
+    <br>
+  
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_classroom_path(@classroom), class: 'btn btn-sm btn-warning' %>
+    <%= link_to 'Destroy', @classroom, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </div>
 </div>

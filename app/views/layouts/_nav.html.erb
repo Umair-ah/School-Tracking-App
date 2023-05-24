@@ -18,6 +18,11 @@
           <div class="fa fa-users"></div>
           Users
         <% end %>
+
+        <%= link_to classrooms_path, class: "nav-link #{'active font-weight-bold' if current_page?(classrooms_path)}" do %>
+          <div class="fa fa-users"></div>
+          Classrooms
+        <% end %>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if current_user %>
