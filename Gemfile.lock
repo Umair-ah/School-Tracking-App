@@ -106,6 +106,7 @@ GEM
     hashie (5.0.0)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.16.4)
     io-console (0.6.0)
     irb (1.6.4)
       reline (>= 0.3.0)
@@ -268,6 +269,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  ice_cube
   jbuilder
   jsbundling-rails
   omniauth-google-oauth2
