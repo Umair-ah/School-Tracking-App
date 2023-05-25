@@ -17,6 +17,14 @@
     <b>Service:</b>
     <%= @course.service.name %>
     <br>
+
+    <b>Start Time:</b>
+    <%= @course.start_time&.strftime("%H:%M")%>
+    <br>
+
+    <b>Days:</b>
+    <%= @course.active_days.join(", ") %>
+    <br>
   
   </div>
   <div class="card-footer d-flex gap-2">
