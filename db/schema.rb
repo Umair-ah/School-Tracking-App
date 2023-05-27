@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_110447) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_180800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,11 +26,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_110447) do
     t.bigint "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time "start_time"
     t.jsonb "days", default: {}, null: false
+    t.datetime "start_time"
     t.index ["classroom_id"], name: "index_courses_on_classroom_id"
     t.index ["service_id"], name: "index_courses_on_service_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_enrollments_on_course_id"
+    t.index ["user_id"], name: "index_enrollments_on_user_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -85,6 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_110447) do
   add_foreign_key "courses", "classrooms"
   add_foreign_key "courses", "services"
   add_foreign_key "courses", "users"
+  add_foreign_key "enrollments", "courses"
+  add_foreign_key "enrollments", "users"
   add_foreign_key "lessons", "classrooms"
   add_foreign_key "lessons", "courses"
   add_foreign_key "lessons", "users"
