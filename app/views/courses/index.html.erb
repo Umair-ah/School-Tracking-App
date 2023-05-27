@@ -40,13 +40,13 @@
           
             <td><%= course.service.name %></td>
           
-            <td><%= course.start_time&.strftime("%H:%M") %></td>
+            <td><%= course.start_time %></td>
 
             <td><%= course.active_days.join(", ") %></td>
 
             <td><%= course.schedule %></td>
             <td><% course.schedule.occurrences(Time.now + 1.month).each do |occurrence| %>
-                <%= occurrence&.strftime("%d/%b/%y") %>
+                <%= occurrence %>
                 <br>
               <% end %>
               <%= button_to "Generate lessons", generate_lessons_course_path(course), method: :patch, class:"btn btn-sm btn-info" %>
