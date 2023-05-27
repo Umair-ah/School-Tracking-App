@@ -3,7 +3,7 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :classroom
   belongs_to :service
-  has_many :lessons
+  has_many :lessons, dependent: :destroy
 
   def schedule
     schedule = IceCube::Schedule.new(now = self.start_time&.to_datetime)
