@@ -3,6 +3,7 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :classroom
   belongs_to :service
+  has_many :lessons
 
   def schedule
     schedule = IceCube::Schedule.new

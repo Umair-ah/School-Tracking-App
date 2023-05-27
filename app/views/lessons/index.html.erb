@@ -33,13 +33,13 @@
           
             <td><%= lesson.user %></td>
           
-            <td><%= lesson.classroom %></td>
+            <td><%= lesson.classroom.name %></td>
           
-            <td><%= lesson.course %></td>
+            <td><%= lesson.course.id %></td>
           
             <td><%= lesson.status %></td>
           
-            <td><%= lesson.start %></td>
+            <td><%= lesson.start.strftime("%H:%M") %></td>
           
           <td>
             <%= link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning' %>

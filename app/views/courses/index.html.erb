@@ -49,6 +49,7 @@
                 <%= occurrence&.strftime("%d/%b/%y") %>
                 <br>
               <% end %>
+              <%= button_to "Generate lessons", generate_lessons_course_path(course), method: :patch, class:"btn btn-sm btn-info" %>
             </td>
 
           <td class="d-flex gap-2">
