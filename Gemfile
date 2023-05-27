@@ -38,6 +38,7 @@ gem 'devise'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'simple_form'
 gem 'ice_cube'
+gem "simple_calendar"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
