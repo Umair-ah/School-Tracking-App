@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "calendar", to: "statics#calendar"
   resources :lessons
   resources :courses do
     member do
