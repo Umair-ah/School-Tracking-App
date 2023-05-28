@@ -17,6 +17,10 @@
             Start:
             <%= lesson.start.strftime("%H:%M") %>
 
+            <% lesson.course.enrollments.each do |enrollment| %>
+              <%= enrollment.user %>
+            <% end %>
+
           </div>
         <% end %>
       <% end %>
