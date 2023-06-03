@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "calendar", to: "statics#calendar"
-  resources :lessons
   resources :courses do
+    resources :lessons, except: [:index, :show], controller: "courses/lessons"
     member do
       patch :generate_lessons
     end

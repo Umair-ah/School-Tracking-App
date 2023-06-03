@@ -34,10 +34,6 @@
           Courses
         <% end %>
 
-        <%= link_to lessons_path, class: "nav-link #{'active font-weight-bold' if current_page?(lessons_path)}" do %>
-          <div class="fa fa-tags"></div>
-          Lessons
-        <% end %>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if current_user %>
