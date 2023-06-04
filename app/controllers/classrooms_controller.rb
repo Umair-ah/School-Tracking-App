@@ -39,6 +39,7 @@ class ClassroomsController < ApplicationController
     else
       redirect_to classrooms_url, alert: 'Classroom has courses. Can not be deleted.'
     end
+  end
 
   private
     def set_classroom

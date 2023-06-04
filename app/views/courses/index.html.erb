@@ -37,11 +37,11 @@
         <%= content_tag :tr, id: dom_id(course), class: dom_class(course) do %>
           <td><%= link_to course.id, course %></td>
           
-            <td><%= course.user.email %></td>
-          
-            <td><%= course.classroom.name %></td>
-          
-            <td><%= course.service.name %></td>
+            <td><%= link_to course.user.email, course.user %></td>
+
+            <td><%= link_to course.classroom.name, course.classroom %></td>
+
+            <td><%= link_to course.service.name, course.service %></td>
           
             <td><%= course.start_time %></td>
 

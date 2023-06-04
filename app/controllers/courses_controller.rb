@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
       end
     end
     
-    redirect_to lessons_path, notice: "Lessons Generated!"
+    redirect_to @course, notice: "Lessons Generated!"
   end
 
   def show
