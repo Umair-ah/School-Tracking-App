@@ -19,6 +19,11 @@
           Users
         <% end %>
 
+        <%= link_to calendar_path, class: "nav-link #{'active font-weight-bold' if current_page?(calendar_path)}" do %>
+          <div class="fa fa-users"></div>
+          Calendar
+        <% end %>
+
         <%= link_to classrooms_path, class: "nav-link #{'active font-weight-bold' if current_page?(classrooms_path)}" do %>
           <div class="fa fa-door-open"></div>
           Classrooms
