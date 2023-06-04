@@ -3,10 +3,11 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :classroom
   belongs_to :service
-  has_many :lessons, dependent: :destroy
+  has_many :lessons, dependent: :restrict_with_error
   has_many :attendances, through: :lessons
+  
 
-  has_many :enrollments, inverse_of: :course
+  has_many :enrollments, inverse_of: :course, dependent: :destroy
   accepts_nested_attributes_for :enrollments, reject_if: :all_blank, allow_destroy: true
 
   def schedule
