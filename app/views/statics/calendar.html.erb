@@ -1,11 +1,17 @@
 <div class="mt-4 mb-2">
     <%= form_tag calendar_path, method: :get do %>
-    <% unless params[:user_id].present? %>
-        <%= select_tag :user_id, options_for_select(User.all.map{|x| [x.to_s, x.id]}), {prompt: "Filter By User", onchange: "this.form.submit()", class:"form-control"} %>
-    <% else %>  
-        <%= select_tag :user_id, options_for_select(User.all.map{|x| [x.to_s, x.id]}, params[:user_id]), {prompt: "User", onchange: "this.form.submit()", class:"form-control"} %>
-        <%= link_to "Reset", calendar_path, class: "btn btn-sm btn-secondary my-2" %>
-    <% end %>
+    <div class="d-flex gap-5">
+        <% unless params.has_key?(:user_id) %>
+            <%= select_tag :user_id, options_for_select(User.all.map{|x| [x.to_s, x.id]}), {prompt: "User", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :classroom_id, options_for_select(Classroom.all.map{|x| [x.to_s, x.id]}), {prompt: "Classroom", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :course_id, options_for_select(Course.all.map{|x| [x.to_s, x.id]}), {prompt: "Course", onchange: "this.form.submit()", class:"form-select"} %>
+        <% else %>  
+            <%= select_tag :user_id, options_for_select(User.all.map{|x| [x.to_s, x.id]}, params[:user_id]), {prompt: "User", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :classroom_id, options_for_select(Classroom.all.map{|x| [x.to_s, x.id]}, params[:classroom_id]), {prompt: "Classroom", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :course_id, options_for_select(Course.all.map{|x| [x.to_s, x.id]}, params[:course_id]), {prompt: "Course", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= link_to "refresh", calendar_path, class: "btn btn-sm btn-secondary" %>
+        <% end %>
+    </div>
     <% end %>
 </div>
 
