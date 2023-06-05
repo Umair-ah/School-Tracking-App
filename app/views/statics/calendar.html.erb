@@ -2,14 +2,14 @@
     <%= form_tag calendar_path, method: :get do %>
     <div class="d-flex gap-5">
         <% unless params.has_key?(:user_id) %>
-            <%= select_tag :user_id, options_for_select(User.all.map{|x| [x.to_s, x.id]}), {prompt: "User", onchange: "this.form.submit()", class:"form-select"} %>
-            <%= select_tag :classroom_id, options_for_select(Classroom.all.map{|x| [x.to_s, x.id]}), {prompt: "Classroom", onchange: "this.form.submit()", class:"form-select"} %>
-            <%= select_tag :course_id, options_for_select(Course.all.map{|x| [x.to_s, x.id]}), {prompt: "Course", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :user_id, options_for_select(@users.map{|x| [x.to_s, x.id]}), {prompt: "User", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :classroom_id, options_for_select(@classrooms.map{|x| [x.to_s, x.id]}), {prompt: "Classroom", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :course_id, options_for_select(@courses.map{|x| [x.to_s, x.id]}), {prompt: "Course", onchange: "this.form.submit()", class:"form-select"} %>
         <% else %>  
-            <%= select_tag :user_id, options_for_select(User.all.map{|x| [x.to_s, x.id]}, params[:user_id]), {prompt: "User", onchange: "this.form.submit()", class:"form-select"} %>
-            <%= select_tag :classroom_id, options_for_select(Classroom.all.map{|x| [x.to_s, x.id]}, params[:classroom_id]), {prompt: "Classroom", onchange: "this.form.submit()", class:"form-select"} %>
-            <%= select_tag :course_id, options_for_select(Course.all.map{|x| [x.to_s, x.id]}, params[:course_id]), {prompt: "Course", onchange: "this.form.submit()", class:"form-select"} %>
-            <%= link_to "refresh", calendar_path, class: "btn btn-sm btn-secondary" %>
+            <%= select_tag :user_id, options_for_select(@users.map{|x| [x.to_s, x.id]}, params[:user_id]), {prompt: "User", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :classroom_id, options_for_select(@classrooms.map{|x| [x.to_s, x.id]}, params[:classroom_id]), {prompt: "Classroom", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= select_tag :course_id, options_for_select(@courses.map{|x| [x.to_s, x.id]}, params[:course_id]), {prompt: "Course", onchange: "this.form.submit()", class:"form-select"} %>
+            <%= link_to "Reset", calendar_path, class: "btn btn-sm btn-secondary" %>
         <% end %>
     </div>
     <% end %>

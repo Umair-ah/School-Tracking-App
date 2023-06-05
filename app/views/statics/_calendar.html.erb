@@ -7,13 +7,18 @@
         <ul class="list-group">
           <% lessons.each do |lesson| %>
             <li class="list-group-item">
-              <%= link_to lesson.start.strftime("%H:%M"), edit_course_lesson_path(lesson.course, lesson) %><br/>
-              Course:
-              <%= link_to lesson.course_id, course_path(lesson.course) %><br/>
-              User:
-              <%= link_to lesson.user.email, user_path(lesson.user) %><br/>
-              Classroom:
-              <%= link_to lesson.classroom.name, classroom_path(lesson.classroom) %><br/>
+              <% unless @course.present? %>
+                Course:
+                <%= link_to lesson.course_id, course_path(lesson.course) %>
+              <% end %>
+              <% unless @user.present? %>
+                User:
+                <%= link_to lesson.user, user_path(lesson.user) %>
+              <% end %>
+              <% unless @classroom.present? %>
+                Classroom:
+                <%= link_to lesson.classroom, classroom_path(lesson.classroom) %>
+              <% end %>
               <%= status_label(lesson.status) %><br/>
 
               <ul class="list-group">
