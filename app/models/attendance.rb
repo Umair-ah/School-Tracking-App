@@ -1,5 +1,5 @@
 class Attendance < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, touch: true
     belongs_to :lesson
     validates :status, presence: true
     monetize :student_price_start, as: :student_price_start_cents
