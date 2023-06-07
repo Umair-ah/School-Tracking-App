@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'ice_cube'
 gem "simple_calendar"
 gem "cocoon"
+gem 'money-rails'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
