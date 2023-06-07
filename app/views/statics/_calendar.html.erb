@@ -27,7 +27,8 @@
                     <%= attendance.user.email %>
                     <%= link_to attendance.user.email, user_path(attendance.user) %>
                     <%= status_label(attendance.status) %>
-                    <%= attendance.student_price_start_cents %>
+                    <%= attendance.student_price_start_cents %> 
+                    <%= attendance.student_price_final_cents %>
                   </li>
                 <% end %>
               </ul>
